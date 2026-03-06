@@ -1,0 +1,15 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "releaseYear": 2010,
+      "genre": ["Action", "Sci-Fi"],
+      "rating": 8.8,
+      "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"
+    }
+  ],
+  "favorites": [],
+  "watchlist": []
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieDB | Personal Collection</title>
+    <meta name="description" content="A premium movie collection manager powered by Supabase and Netlify.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🎬</span>
+                    <h1>MovieDB</h1>
+                </div>
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search your collection..." autocomplete="off">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button id="openModalBtn" class="btn-primary">+ Add Movie</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="loadingState" class="status-message">
+                <div class="spinner"></div>
+                <p>Curating your collection...</p>
+            </div>
+            <div id="emptyState" class="status-message hidden">
+                <p>No movies found. Start by adding one!</p>
+            </div>
+            <div id="movieGrid" class="movie-grid"></div>
+        </main>
+
+        <!-- Add Movie Modal -->
+        <div id="modalOverlay" class="modal-overlay hidden">
+            <div class="modal fade-in">
+                <div class="modal-header">
+                    <h2>Add New Movie</h2>
+                    <button id="closeModalBtn" class="close-btn">&times;</button>
+                </div>
+                <form id="addMovieForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" required placeholder="Inception">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="director">Director</label>
+                            <input type="text" id="director" required placeholder="Christopher Nolan">
+                        </div>
+                        <div class="form-group">
+                            <label for="releaseYear">Year</label>
+                            <input type="number" id="releaseYear" required placeholder="2010">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="genre">Genres (comma separated)</label>
+                            <input type="text" id="genre" required placeholder="Sci-Fi, Action">
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating (0-10)</label>
+                            <input type="number" id="rating" step="0.1" min="0" max="10" required placeholder="8.8">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="posterUrl">Poster URL</label>
+                        <input type="url" id="posterUrl" required placeholder="https://example.com/poster.jpg">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Add to Collection</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="main.js"></script>
+</body>
+</html>
